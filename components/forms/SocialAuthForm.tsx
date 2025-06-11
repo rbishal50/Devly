@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import React from "react";
 import { toast } from "sonner";
@@ -14,18 +13,11 @@ const SocialAuthForm = () => {
   const buttonClass =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5";
 
-  const router = useRouter();
-
   const handleSignIn = async (provider: "github" | "google") => {
     try {
-      const res = await signIn(provider, {
-        callbackUrl: ROUTES.HOME,
-        redirect: false,
+      await signIn(provider, {
+        redirectTo: ROUTES.HOME,
       });
-
-      console.log({ res });
-
-      router.push(res.url!);
     } catch (error) {
       console.log(error);
 
