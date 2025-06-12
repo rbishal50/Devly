@@ -309,7 +309,7 @@
 }
 
 @utility card-wrapper {
-  @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
+  @apply bg-light-900 dark:dark-gradient shadow-light-300 dark:shadow-dark-100;
 }
 
 @utility btn {
