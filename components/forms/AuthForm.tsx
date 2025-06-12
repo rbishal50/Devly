@@ -93,7 +93,7 @@ const AuthForm = <T extends FieldValues>({
           <p>
             Do not have an account?{" "}
             <Link
-              href={ROUTES.SIGNUP}
+              href={ROUTES.SIGN_UP}
               className="paragraph-semibold primary-text-gradient"
             >
               Sign up
@@ -103,7 +103,7 @@ const AuthForm = <T extends FieldValues>({
           <p>
             Already have an account?{" "}
             <Link
-              href={ROUTES.SIGNIN}
+              href={ROUTES.SIGN_IN}
               className="paragraph-semibold primary-text-gradient"
             >
               Sign in

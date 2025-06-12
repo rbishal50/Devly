@@ -349,7 +349,7 @@
 .custom-scrollbar::-webkit-scrollbar {
   width: 3px;
   height: 3px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
