@@ -22,8 +22,7 @@ const spaceGrotesk = localFont({
 
 export const metadata: Metadata = {
   title: "Devly",
-  description:
-    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
+  description: "A platform to share and expand your knowledge!",
   icons: {
     icon: "/images/site-logo.svg",
   },
