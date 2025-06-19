@@ -5,6 +5,8 @@ import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import { api } from "@/lib/api";
+import handleError from "@/lib/handlers/error";
 
 const questions: Question[] = [
   {
@@ -63,6 +65,18 @@ const Home = async ({ searchParams }: SearchParams) => {
       : true;
     return matchesQuery && matchesFilter;
   });
+
+  const test = async () => {
+    try {
+      return await api.users.getAll();
+    } catch (error) {
+      return handleError(error);
+    }
+  };
+
+  const users = await test();
+
+  console.log({ users });
 
   return (
     <>
