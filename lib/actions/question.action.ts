@@ -164,6 +164,12 @@ export async function editQuestion(
         { session }
       );
 
+      // Remove orphan tags => tags with 0 questions
+      await Tag.deleteMany(
+        { _id: { $in: tagIdsToRemove }, questions: 0 },
+        { session }
+      );
+
       question.tags = question.tags.filter(
         (tag: mongoose.Types.ObjectId) =>
           !tagIdsToRemove.some((id: mongoose.Types.ObjectId) =>
