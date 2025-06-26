@@ -1,6 +1,7 @@
 import { FilterQuery } from "mongoose";
 
 import { Question, Tag } from "@/database";
+import { IQuestionDoc } from "@/database/question.model";
 
 import action from "../handlers/action";
 import handleError from "../handlers/error";
@@ -97,8 +98,8 @@ export const getTagQuestions = async (
     const tag = await Tag.findById(tagId);
     if (!tag) throw new Error("Tag not found");
 
-    const filterQuery: FilterQuery<typeof Question> = {
-      tags: { $in: tagId },
+    const filterQuery: FilterQuery<IQuestionDoc> = {
+      tags: { $in: [tagId] },
     };
 
     if (query) {
