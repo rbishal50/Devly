@@ -68,14 +68,6 @@ export const AskQuestionSchema = z.object({
     .max(3, { message: "Cannot add more than 3 tags." }),
 });
 
-export const EditQuestionSchema = AskQuestionSchema.extend({
-  questionId: z.string().min(1, { message: "Question id is required!" }),
-});
-
-export const GetQuestionSchema = z.object({
-  questionId: z.string().min(1, "Question ID is required"),
-});
-
 export const UserSchema = z.object({
   name: z.string().min(1, { message: "Name is required." }),
   username: z
@@ -83,8 +75,7 @@ export const UserSchema = z.object({
     .min(3, { message: "Username must be at least 3 characters long." }),
   email: z.string().email({ message: "Please provide a valid email address." }),
   bio: z.string().optional(),
-  // image: z.string().url({ message: "Please provide a valid URL." }).optional(),
-  image: z.string().optional(),
+  image: z.string().url({ message: "Please provide a valid URL." }).optional(),
   location: z.string().optional(),
   portfolio: z
     .string()
@@ -135,6 +126,14 @@ export const SignInWithOAuthSchema = z.object({
   }),
 });
 
+export const EditQuestionSchema = AskQuestionSchema.extend({
+  questionId: z.string().min(1, { message: "Question ID is required." }),
+});
+
+export const GetQuestionSchema = z.object({
+  questionId: z.string().min(1, { message: "Question ID is required." }),
+});
+
 export const PaginatedSearchParamsSchema = z.object({
   page: z.number().int().positive().default(1),
   pageSize: z.number().int().positive().default(10),
@@ -145,4 +144,8 @@ export const PaginatedSearchParamsSchema = z.object({
 
 export const GetTagQuestionsSchema = PaginatedSearchParamsSchema.extend({
   tagId: z.string().min(1, { message: "Tag ID is required." }),
+});
+
+export const IncrementViewsSchema = z.object({
+  questionId: z.string().min(1, { message: "Question ID is required." }),
 });
