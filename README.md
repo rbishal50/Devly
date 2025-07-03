@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A next js full stack app on exploration of route handlers, server actions and mongo.
 
 ## Getting Started
 
